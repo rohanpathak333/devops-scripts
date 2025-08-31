@@ -19,9 +19,10 @@ services:
         image: ghcr.io/benc-uk/python-demoapp
         container_name: backend2
         expose:
-          - "5001"
+          - "5000"
   backend3:
         image: ghcr.io/benc-uk/python-demoapp
         container_name: backend3
         expose:
-          - "5002"
+          - "5000"
+
