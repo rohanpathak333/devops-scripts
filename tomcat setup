@@ -1,0 +1,39 @@
+Tomcat Setup
+============
+Launch amazon Linux 2 and install tomcat manually first and then automatically 
+using script
+All apache software are available in http://dlcdn.apache.org --> tomcat --> 
+tomcat-9--> v9.0.89--> bin--> apache-tomcat-9.0.89.tar.gz
+Step1: install java
+-------------------
+amazon-linux-extras install java-openjdk11 -y
+Step 2: download tomcat
+----------------------
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.34/bin/apache-
+tomcat-10.1.34.tar.gz
+Step3: Extract
+--------------
+tar -zxvf apache-tomcat-10.1.34.tar.gz
+Step4: Configure user, passwords and roles
+-------------------------------------------
+--> cd apache-tomcat-10.1.34/conf/
+--> vi tomcat-users.xml
+Add new files --> copy 3 lines and paste, line 56
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<user username="tomcat" password="root123456" roles="manager-gui,manager-
+script"/>
+Step 5: Delete line 21 and 22 -- if not delete, we need to give public ip
+------------------------------
+ --> cd apache-tomcat-10.1.34/webapps/manager/META-INF
+ --> vi context.xml
+:22
+Step 6: Start Tomcat
+--------------------
+ --> cd apache-tomcat-10.1.34/bin
+ --> sh startup.sh
+Connection
+=========
+http://IP:8080
+manager apps --> username: tomcat, password: root123
+================================================
